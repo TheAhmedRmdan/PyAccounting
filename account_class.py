@@ -10,22 +10,21 @@ class Account(ABC):
         balance (float or int): The balance of the account.
         acc_type (str): The type of the account. Must be 'dr' or 'cr'"""
 
-    # balance_sheet = {}
-
-    @abstractmethod
-    def get_accounts(cls):
-        """returns a dict with current accounts"""
-        # print(cls.balance_sheet)
+    def __init__(self, name, balance, acc_type):
+        self.balance = balance
+        self.acc_type = acc_type
+        self.name = name
+        self.update()
 
     def __str__(self) -> str:
         """Returns a basic account form: Account name, |Balance|, Account Type"""
         return f"{self.name}, |{self.balance}|, {self.acc_type.title()}."
 
-    def __init__(self, name, balance, acc_type: str):
-        self.balance = balance
-        self.acc_type = acc_type
-        self.name = name
-        # self.update()
+    balance_sheet = {}
+
+    def get_accounts(self):
+        """returns a dict with current accounts"""
+        print(self.balance_sheet)
 
     @property
     def balance(self):
@@ -66,10 +65,9 @@ class Account(ABC):
             self._balance -= amount
         self.update()  # ! calling an abstract method in a non-abstract method, informative!!!
 
-    @abstractmethod
-    def update(self):
+    def update(self):  # previously @abstractmetohd
         """Updates the balance_sheet dict for every transaction"""
-        # Account.balance_sheet[self.name] = self._balance, self._acc_type
+        self.__class__.balance_sheet[self.name] = self._balance, self._acc_type
 
     def __add__(self, other):
         """Adding an int or float credits the account balance"""
@@ -110,3 +108,5 @@ class Account(ABC):
 # Account.get_accounts()
 # print(Account.trash)
 # print(exp)
+
+# print(Account.balance_sheet)

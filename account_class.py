@@ -22,9 +22,10 @@ class Account(ABC):
 
     balance_sheet = {}
 
-    def get_accounts(self):
+    @classmethod
+    def get_accounts(cls):
         """returns a dict with current accounts"""
-        print(self.balance_sheet)
+        print(cls.balance_sheet)
 
     @property
     def balance(self):
@@ -99,7 +100,7 @@ class Account(ABC):
 
 # exp = Account("Expense", 500, "dr")
 # rev = Account("Revenue", 800, "cr")
-# Account.get_accounts()
+# exp.get_accounts()
 # exp + 200
 # Account.get_accounts()
 # meg = exp.merge(rev, "Merged")

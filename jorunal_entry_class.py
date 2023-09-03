@@ -5,24 +5,17 @@ from asset_class import *
 from liability_class import *
 from OE_classes import *
 
-# d = datetime.datetime.now()#.strftime()
-# print(d)
 journal_file = "journal.txt"
-
-# with open(journal_file, "a"):
-#     pass
 
 
 class Entry:
     """A journal entries model"""
 
-    entries_list = set()
-    unique_id = 0
+    entry_unique_id = 0
 
     def __init__(self, amount, debit: Account, credit: Account, explaination=""):
-        __class__.unique_id += 1
-        self.id = __class__.unique_id
-        __class__.entries_list.add(self.id)
+        __class__.entry_unique_id += 1
+        self.id = __class__.entry_unique_id
         self.amount = amount
         self.debit_side = debit
         self.credit_side = credit
@@ -30,6 +23,7 @@ class Entry:
         self.date = datetime.datetime.now().strftime("%d %b %Y")
         self.debit_side.debit(amount)
         self.credit_side.credit(amount)
+
         with open(journal_file, "r+") as j_file:
             contents = j_file.read()
             if str(self) in contents:
@@ -88,11 +82,14 @@ class Entry:
             raise ValueError("Credit side must be an Account object")
         self._credit_side = other
 
+    def __del__(self):
+        try:
+            with open(journal_file, "r") as j_file:
+                contents = j_file.read()
 
-cash = Asset("Cash", 1000)
-rev = Revenue("Revenue", 2500)
-ent1 = Entry(66, cash, rev)
-ent2 = Entry(77, rev, cash)
-print(ent1.id)
-print(ent2.id)
-print(Entry.entries_list)
+            delete_text = contents.replace(str(self), "")
+
+            with open(journal_file, "w") as j_file:
+                j_file.write(delete_text)
+        except NameError:
+            pass

@@ -97,6 +97,9 @@ class Account(ABC):
         else:
             return False
 
+    def __repr__(self):
+        return f"{tuple([self.name,self.balance,self.acc_type])}"
+
 
 # exp = Account("Expense", 500, "dr")
 # rev = Account("Revenue", 800, "cr")

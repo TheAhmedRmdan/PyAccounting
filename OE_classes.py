@@ -7,8 +7,11 @@ class OE(Account):
 
     def __init__(self, name, balance, acc_type="cr"):
         super().__init__(name, balance, acc_type)
+        __class__.class_childs.append(self)
+        self.update()
 
     balance_sheet = {}
+    class_childs = []
 
     def update(self):
         """Updates the balance_sheet dict for every transaction"""
@@ -50,3 +53,6 @@ class Drawing(OE):
         super().__init__(name, balance, acc_type)
 
     balance_sheet = {}
+
+
+cap = OE("Capital", 10000)

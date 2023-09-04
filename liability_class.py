@@ -7,5 +7,11 @@ class Liab(Account):
 
     def __init__(self, name, balance, acc_type="cr"):
         super().__init__(name, balance, acc_type)
+        __class__.class_childs.append(self)
+        self.update()
 
     balance_sheet = {}
+    class_childs = []
+
+
+ap = Liab("A/P", 5000)

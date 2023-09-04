@@ -1,5 +1,5 @@
 """Owner's Equity accouts models"""
-from account_class import Account
+from account import Account
 
 
 class OE(Account):

@@ -1,6 +1,6 @@
-from asset_class import *
-from liability_class import *
-from OE_classes import *
+from asset import *
+from liability import *
+from owner_equity import *
 from prettytable import *
 
 TRIAL_BALANCE_FILE = "trial_balance.txt"

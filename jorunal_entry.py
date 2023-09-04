@@ -1,6 +1,6 @@
 """Modelling accounting journal"""
 import datetime
-from account_class import *
+from account import *
 
 
 JOURNAL_FILE = "journal.txt"

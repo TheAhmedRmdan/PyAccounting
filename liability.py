@@ -1,5 +1,5 @@
 """Liabilites accounts model"""
-from account_class import Account
+from account import Account
 
 
 class Liab(Account):

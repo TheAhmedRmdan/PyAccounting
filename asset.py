@@ -1,5 +1,5 @@
 """Assets accounts model"""
-from account_class import *
+from account import *
 
 
 class Asset(Account):

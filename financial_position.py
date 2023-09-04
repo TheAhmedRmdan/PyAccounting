@@ -4,6 +4,7 @@ from liability_class import *
 from OE_classes import *
 from trial_balance_class import *
 from prettytable import PrettyTable
+import datetime
 
 
 class FinancialPosition:
@@ -35,14 +36,17 @@ class FinancialPosition:
                 "Total Liabilites and Owner's Equity",
                 "",
                 __class__.liabs_total_balance + __class__.OEs_total_balance,
-            ]
+            ],
+            divider=True,
         )
+        __class__.table.add_row(["Date", __class__.issue_date, ""])
         with open("Financial_Position.txt", "w", encoding="utf-8") as f:
             f.write(str(self))
 
     assets = Asset.class_childs
     assets_names = [acc.name for acc in assets]
     assets_total_balance = sum(acc.balance for acc in assets)
+    issue_date = datetime.datetime.now().strftime("%d %b %Y")
     table = PrettyTable(["Account", "Subtotal", "Total"])
     table.align["Total"] = "r"
     table.set_style(SINGLE_BORDER)

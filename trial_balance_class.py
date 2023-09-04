@@ -1,8 +1,9 @@
-from account_class import *
 from asset_class import *
 from liability_class import *
 from OE_classes import *
 from prettytable import *
+
+TRIAL_BALANCE_FILE = "trial_balance.txt"
 
 
 class TrialBalance:
@@ -16,7 +17,8 @@ class TrialBalance:
         __class__.table.add_row(
             ["Total", sum(__class__.debit_sum_list), sum(__class__.credit_sum_list)]
         )
-        __class__.table.set_style(SINGLE_BORDER)
+        with open(TRIAL_BALANCE_FILE, "w", encoding="utf-8") as trial_bal_file:
+            trial_bal_file.write(str(self))
 
     def __str__(self) -> str:
         return str(__class__.table)
@@ -25,7 +27,7 @@ class TrialBalance:
         return str(__class__.table)
 
     table = PrettyTable(["Account", "Debit", "Credit"])
-
+    table.set_style(SINGLE_BORDER)
     debit_sum_list = []
     credit_sum_list = []
     assets = Asset.class_childs

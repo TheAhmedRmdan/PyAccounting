@@ -1,11 +1,9 @@
 """Modelling accounting journal"""
 import datetime
 from account_class import *
-from asset_class import *
-from liability_class import *
-from OE_classes import *
 
-journal_file = "journal.txt"
+
+JOURNAL_FILE = "journal.txt"
 
 
 class Entry:
@@ -24,7 +22,7 @@ class Entry:
         self.debit_side.debit(amount)
         self.credit_side.credit(amount)
 
-        with open(journal_file, "r+") as j_file:
+        with open(JOURNAL_FILE, "r+") as j_file:
             contents = j_file.read()
             if str(self) in contents:
                 print(f"This entry {str(self)} already exists in the Journal")
@@ -84,12 +82,12 @@ class Entry:
 
     def __del__(self):
         try:
-            with open(journal_file, "r") as j_file:
+            with open(JOURNAL_FILE, "r") as j_file:
                 contents = j_file.read()
 
             delete_text = contents.replace(str(self), "")
 
-            with open(journal_file, "w") as j_file:
+            with open(JOURNAL_FILE, "w") as j_file:
                 j_file.write(delete_text)
         except NameError:
             pass

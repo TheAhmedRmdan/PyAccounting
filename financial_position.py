@@ -1,10 +1,10 @@
-from account_class import *
 from asset_class import *
 from liability_class import *
 from OE_classes import *
-from trial_balance_class import *
-from prettytable import PrettyTable
+from prettytable import *
 import datetime
+
+FINANCIAL_POSITION_FILE = "Financial_Position.txt"
 
 
 class FinancialPosition:
@@ -40,8 +40,8 @@ class FinancialPosition:
             divider=True,
         )
         __class__.table.add_row(["Date", __class__.issue_date, ""])
-        with open("Financial_Position.txt", "w", encoding="utf-8") as f:
-            f.write(str(self))
+        with open(FINANCIAL_POSITION_FILE, "w", encoding="utf-8") as fin_pos_file:
+            fin_pos_file.write(str(self))
 
     assets = Asset.class_childs
     assets_names = [acc.name for acc in assets]

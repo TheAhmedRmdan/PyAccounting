@@ -1,11 +1,8 @@
-from account_class import *
-from asset_class import *
-from liability_class import *
 from OE_classes import *
-from trial_balance_class import *
-from prettytable import PrettyTable
-from financial_position import *
+from prettytable import *
 import datetime
+
+INCOME_STATEMENT_FILE = "income_statement.txt"
 
 
 class IncomeStatement:
@@ -29,7 +26,7 @@ class IncomeStatement:
                 (__class__.reveneus_total_balance - __class__.expenses_total_balance),
             ]
         )
-        with open("income_statement.txt", "w", encoding="utf-8") as is_file:
+        with open(INCOME_STATEMENT_FILE, "w", encoding="utf-8") as is_file:
             is_file.write(str(self))
 
     def __str__(self) -> str:

@@ -1,3 +1,5 @@
+"""
+This module provides a class `FinancialPosition` to create a financial position statement."""
 from asset import *
 from liability import *
 from owner_equity import *

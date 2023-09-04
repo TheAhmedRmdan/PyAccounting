@@ -1,3 +1,6 @@
+"""This module provides a class `TrialBalance` to create an accounting trial balance."""
+
+
 from asset import *
 from liability import *
 from owner_equity import *
@@ -43,6 +46,12 @@ class TrialBalance:
     OEs_names = [acc.name for acc in OEs]
 
     def make_row(gacc: list):
+        """Adds a row to the trial balance table for each account in gacc.
+
+        gacc: General Account class_childs list
+
+            gacc stands for General Account [Assets, Liabilities, Owner's Equity]
+        """
         k = 0
         n = len(gacc)
         gacc_names = [acc.name for acc in gacc]

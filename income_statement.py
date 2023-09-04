@@ -1,3 +1,5 @@
+"""
+This module provides a class `IncomeStatement` to create an income statement."""
 from owner_equity import *
 from prettytable import *
 import datetime

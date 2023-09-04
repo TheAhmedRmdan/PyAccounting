@@ -1,4 +1,6 @@
-"""Modelling accounting journal"""
+"""This module models an accounting journal. 
+It provides a class `Entry` to create journal entries and manage them in a journal file."""
+
 import datetime
 from account import *
 
@@ -7,7 +9,19 @@ JOURNAL_FILE = "journal.txt"
 
 
 class Entry:
-    """A journal entries model"""
+    """
+    Constructs all the necessary attributes for the entry object.
+
+    Parameters
+    ----------
+        amount : int or float
+            the amount of the entry
+        debit : Account
+            the account to be debited
+        credit : Account
+            the account to be credited
+        explaination : str, optional
+            a brief explanation of the entry (default is "")"""
 
     entry_unique_id = 0
 

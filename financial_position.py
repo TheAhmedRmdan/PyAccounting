@@ -69,8 +69,6 @@ class FinancialPosition:
         n = len(gacc)
         gacc_names = [acc.name for acc in gacc]
         while k < n:
-            # if gacc[k].acc_type == "dr":
-            # __class__.debit_sum_list.append(gacc[k].balance)
             __class__.table.add_row(
                 [
                     gacc_names[k],

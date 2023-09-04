@@ -12,15 +12,3 @@ class Asset(Account):
 
     balance_sheet = {}
     class_childs = []
-
-
-cash = Asset("cash", 500)
-cash.debit(100)
-exp = Asset("expense", 200, "dr")
-
-# print(cash.balance)
-# x = Asset.class_childs
-# total_balance = sum(acc.balance for acc in Asset.class_childs)
-# names = [acc.name for acc in Asset.class_childs]
-# print(names)
-# print(total_balance)

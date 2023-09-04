@@ -61,7 +61,3 @@ class Drawing(OE):
 
     balance_sheet = {}
     class_childs = []
-
-
-cap = Capital("Capital", 10000)
-exp = Expense("Expesne", 77)

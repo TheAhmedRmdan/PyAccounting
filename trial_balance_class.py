@@ -19,13 +19,12 @@ class TrialBalance:
         __class__.table.set_style(SINGLE_BORDER)
 
     def __str__(self) -> str:
-        # __class__.table.set_style(MSWORD_FRIENDLY)
         return str(__class__.table)
 
     def __repr__(self) -> str:
         return str(__class__.table)
 
-    # table = PrettyTable(["Account", "Debit", "Credit"])
+    table = PrettyTable(["Account", "Debit", "Credit"])
 
     debit_sum_list = []
     credit_sum_list = []
@@ -65,17 +64,3 @@ class TrialBalance:
                     ]
                 )
             k += 1
-
-
-# make_row(TrialBalance.OEs)
-# make_row(TrialBalance.assets)
-# make_row(TrialBalance.liabs)
-# print(TrialBalance.debit_sum_list)
-# print(TrialBalance.credit_sum_list)
-# print(bs)
-# debit_sum = sum(TrialBalance.debit_sum_list)
-# credit_sum = sum(TrialBalance.credit_sum_list)
-# x = TrialBalance.make_row
-# print(x)
-# test = TrialBalance()
-# print(test)

@@ -99,18 +99,3 @@ class Account(ABC):
 
     def __repr__(self):
         return f"{tuple([self.name,self.balance,self.acc_type])}"
-
-
-# exp = Account("Expense", 500, "dr")
-# rev = Account("Revenue", 800, "cr")
-# exp.get_accounts()
-# exp + 200
-# Account.get_accounts()
-# meg = exp.merge(rev, "Merged")
-# Account.get_accounts()
-# del meg
-# Account.get_accounts()
-# print(Account.trash)
-# print(exp)
-
-# print(Account.balance_sheet)

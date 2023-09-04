@@ -12,6 +12,3 @@ class Liab(Account):
 
     balance_sheet = {}
     class_childs = []
-
-
-ap = Liab("A/P", 5000)

@@ -24,8 +24,10 @@ class Capital(OE):
 
     def __init__(self, name, balance, acc_type="cr"):
         super().__init__(name, balance, acc_type)
+        __class__.class_childs.append(self)
 
     balance_sheet = {}
+    class_childs = []
 
 
 class Revenue(OE):
@@ -33,8 +35,10 @@ class Revenue(OE):
 
     def __init__(self, name, balance, acc_type="cr"):
         super().__init__(name, balance, acc_type)
+        __class__.class_childs.append(self)
 
     balance_sheet = {}
+    class_childs = []
 
 
 class Expense(OE):
@@ -42,8 +46,10 @@ class Expense(OE):
 
     def __init__(self, name, balance, acc_type="dr"):
         super().__init__(name, balance, acc_type)
+        __class__.class_childs.append(self)
 
     balance_sheet = {}
+    class_childs = []
 
 
 class Drawing(OE):
@@ -51,8 +57,11 @@ class Drawing(OE):
 
     def __init__(self, name, balance, acc_type="dr"):
         super().__init__(name, balance, acc_type)
+        __class__.class_childs.append(self)
 
     balance_sheet = {}
+    class_childs = []
 
 
-cap = OE("Capital", 10000)
+cap = Capital("Capital", 10000)
+exp = Expense("Expesne", 77)

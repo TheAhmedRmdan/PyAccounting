@@ -37,6 +37,8 @@ class FinancialPosition:
                 __class__.liabs_total_balance + __class__.OEs_total_balance,
             ]
         )
+        with open("Financial_Position.txt", "w", encoding="utf-8") as f:
+            f.write(str(self))
 
     assets = Asset.class_childs
     assets_names = [acc.name for acc in assets]
@@ -79,8 +81,4 @@ class FinancialPosition:
             k += 1
 
     def __str__(self) -> str:
-        return str(__class__.table)
-
-
-x = FinancialPosition()
-print(x)
+        return __class__.table.get_string()

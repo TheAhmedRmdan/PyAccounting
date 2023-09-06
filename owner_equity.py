@@ -15,7 +15,7 @@ class OE(Account):
 
     def update(self):
         """Updates the balance_sheet dict for every transaction"""
-        self.__class__.balance_sheet[self.name] = self._balance, self._acc_type
+        # self.__class__.balance_sheet[self.name] = self._balance, self._acc_type
         __class__.balance_sheet[self.name] = self._balance, self._acc_type
 
 

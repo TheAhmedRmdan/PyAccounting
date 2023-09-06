@@ -1,6 +1,13 @@
-"""This module models an accounting journal. 
-It provides a class `Entry` to create journal entries and manage them in a journal file."""
+"""
+This module models an accounting journal. It provides a class `Entry` to create journal entries and manage them in a journal file.
 
+Classes:
+    Entry: A class to model a journal entry.
+
+Imports:
+    datetime: A module to work with dates as date objects.
+    account: A module that provides the Account class.
+"""
 import datetime
 from account import *
 
@@ -10,22 +17,91 @@ JOURNAL_FILE = "journal.txt"
 
 class Entry:
     """
-    Constructs all the necessary attributes for the entry object.
+    A class to represent a journal entry.
 
-    Parameters
+    ...
+
+    Attributes
     ----------
-        amount : int or float
-            the amount of the entry
-        debit : Account
-            the account to be debited
-        credit : Account
-            the account to be credited
-        explaination : str, optional
-            a brief explanation of the entry (default is "")"""
+    entry_unique_id : int
+        a class attribute to keep track of the number of entries created
+    id : int
+        a unique identifier for each entry
+    amount : int or float
+        the amount of the entry
+    debit_side : Account
+        the account to be debited
+    credit_side : Account
+        the account to be credited
+    explain : str
+        a brief explanation of the entry
+    date : str
+        the date the entry was created
+
+    Methods
+    -------
+    __str__():
+        Returns a string representation of the entry.
+    amount():
+        Property getter for the amount attribute.
+    amount(new_amount):
+        Property setter for the amount attribute.
+    debit_side():
+        Property getter for the debit_side attribute.
+    debit_side(other):
+        Property setter for the debit_side attribute.
+    credit_side():
+        Property getter for the credit_side attribute.
+    credit_side(other):
+        Property setter for the credit_side attribute.
+    __del__():
+        Deletes the entry from the journal file when the entry object is deleted.
+    """
 
     entry_unique_id = 0
 
     def __init__(self, amount, debit: Account, credit: Account, explaination=""):
+        """
+        A class to represent a journal entry.
+
+        ...
+
+        Attributes
+        ----------
+        entry_unique_id : int
+            a class attribute to keep track of the number of entries created
+        id : int
+            a unique identifier for each entry
+        amount : int or float
+            the amount of the entry
+        debit_side : Account
+            the account to be debited
+        credit_side : Account
+            the account to be credited
+        explain : str
+            a brief explanation of the entry
+        date : str
+            the date the entry was created
+
+        Methods
+        -------
+        __str__():
+            Returns a string representation of the entry.
+        amount():
+            Property getter for the amount attribute.
+        amount(new_amount):
+            Property setter for the amount attribute.
+        debit_side():
+            Property getter for the debit_side attribute.
+        debit_side(other):
+            Property setter for the debit_side attribute.
+        credit_side():
+            Property getter for the credit_side attribute.
+        credit_side(other):
+            Property setter for the credit_side attribute.
+        __del__():
+            Deletes the entry from the journal file when the entry object is deleted."""
+
         __class__.entry_unique_id += 1
         self.id = __class__.entry_unique_id
         self.amount = amount

@@ -1,5 +1,15 @@
-"""This module provides a class `TrialBalance` to create an accounting trial balance."""
+"""
+This module provides a class `TrialBalance` to create a trial balance.
 
+Classes:
+    TrialBalance: A class to model a trial balance.
+
+Imports:
+    asset: A module that provides the Asset class.
+    liability: A module that provides the Liability class.
+    owner_equity: A module that provides the OwnerEquity class.
+    prettytable: A module to create ASCII art tables.
+"""
 
 from asset import *
 from liability import *
@@ -10,7 +20,50 @@ TRIAL_BALANCE_FILE = "trial_balance.txt"
 
 
 class TrialBalance:
+    """
+    A class to represent a trial balance.
+
+    ...
+
+    Attributes
+    ----------
+    table : PrettyTable
+        a table to display the trial balance
+    debit_sum_list : list
+        a list to keep track of the total debits
+    credit_sum_list : list
+        a list to keep track of the total credits
+    assets : list
+        a list of all asset accounts
+    assets_names : list
+        a list of the names of all asset accounts
+    liabs : list
+        a list of all liability accounts
+    liabs_total_balance : float
+        the total balance of all liability accounts
+    liabs_names : list
+        a list of the names of all liability accounts
+    OEs : list
+        a list of all owner's equity accounts
+    OEs_total_balance : float
+        the total balance of all owner's equity accounts
+    OEs_names : list
+        a list of the names of all owner's equity accounts
+
+    Methods
+    -------
+    __str__():
+        Returns a string representation of the trial balance.
+    __repr__():
+        Returns a string representation of the trial balance.
+    make_row(gacc: list):
+        Adds a row to the trial balance table for each account in gacc.
+    """
+
     def __init__(self) -> None:
+        """
+        Constructs all the necessary attributes for the trial balance object.
+        """
         __class__.make_row(__class__.assets)
         __class__.make_row(__class__.liabs)
         __class__.make_row(
@@ -52,6 +105,7 @@ class TrialBalance:
 
             gacc stands for General Account [Assets, Liabilities, Owner's Equity]
         """
+
         k = 0
         n = len(gacc)
         gacc_names = [acc.name for acc in gacc]

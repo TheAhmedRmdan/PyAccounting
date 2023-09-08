@@ -62,12 +62,12 @@ class Account:
         """Returns a basic account form: Account name, |Balance|, Account Type"""
         return f"{self.name}, |{self.balance}|, {self.acc_type.title()}."
 
-    balance_sheet = {}
+    class_childs = []
 
     @classmethod
     def get_accounts(cls):
-        """returns a dict with current accounts"""
-        print(cls.balance_sheet)
+        """returns a list with current accounts"""
+        print(cls.class_childs)
 
     @property
     def balance(self):
@@ -98,7 +98,6 @@ class Account:
             self._balance -= amount
         elif self._acc_type == "dr":
             self._balance += amount
-        self.update()
 
     def credit(self, amount):
         """Credits the account with the specified amount"""
@@ -106,33 +105,26 @@ class Account:
             self._balance += amount
         elif self._acc_type == "dr":
             self._balance -= amount
-        self.update()  # ! calling an abstract method in a non-abstract method, informative!!!
 
     def update(self):  # previously @abstractmetohd
-        # TODO updating the bs dict is unnecessary, change it to update the class childs
-        # TODO instead of doing it in every init
         """Updates the balance_sheet dict for every transaction"""
-        self.__class__.balance_sheet[self.name] = self._balance, self._acc_type
+        self.class_childs.append(self)
 
     def __add__(self, other):
         """Adding an int or float credits the account balance"""
         self._balance += other
-        self.update()
         return self._balance
 
     def __sub__(self, other):
         self._balance -= other
-        self.update()
         return self._balance
 
     def __truediv__(self, other):
         self._balance /= other
-        self.update()
         return self._balance
 
     def __mul__(self, other):
         self._balance *= other
-        self.update()
         return self._balance
 
     def __eq__(self, other):

@@ -7,16 +7,14 @@ class OE(Account):
 
     def __init__(self, name, balance, acc_type="cr"):
         super().__init__(name, balance, acc_type)
-        __class__.class_childs.append(self)
-        self.update()
 
-    balance_sheet = {}
     class_childs = []
 
     def update(self):
-        """Updates the balance_sheet dict for every transaction"""
-        # self.__class__.balance_sheet[self.name] = self._balance, self._acc_type
-        __class__.balance_sheet[self.name] = self._balance, self._acc_type
+        """Sepcial implementation for the OE class only.
+        Updates the class childs list for every transaction"""
+        self.__class__.class_childs.append(self)
+        __class__.class_childs.append(self)
 
 
 class Capital(OE):
@@ -24,9 +22,7 @@ class Capital(OE):
 
     def __init__(self, name, balance, acc_type="cr"):
         super().__init__(name, balance, acc_type)
-        __class__.class_childs.append(self)
 
-    balance_sheet = {}
     class_childs = []
 
 
@@ -35,9 +31,7 @@ class Revenue(OE):
 
     def __init__(self, name, balance, acc_type="cr"):
         super().__init__(name, balance, acc_type)
-        __class__.class_childs.append(self)
 
-    balance_sheet = {}
     class_childs = []
 
 
@@ -46,7 +40,6 @@ class Expense(OE):
 
     def __init__(self, name, balance, acc_type="dr"):
         super().__init__(name, balance, acc_type)
-        __class__.class_childs.append(self)
 
     balance_sheet = {}
     class_childs = []
@@ -57,7 +50,5 @@ class Drawing(OE):
 
     def __init__(self, name, balance, acc_type="dr"):
         super().__init__(name, balance, acc_type)
-        __class__.class_childs.append(self)
 
-    balance_sheet = {}
     class_childs = []

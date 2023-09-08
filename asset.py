@@ -53,8 +53,5 @@ class Asset(Account):
         """
 
         super().__init__(name, balance, acc_type)
-        __class__.class_childs.append(self)
-        self.update()
 
-    balance_sheet = {}
     class_childs = []

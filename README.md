@@ -12,7 +12,7 @@ PyAccounting is a Python library for managing accounting-related tasks and calcu
 
 ## Installation
 
-To use PyAccounting, you need to have Python 3.x installed. You can install PyAccounting using pip:
+To use PyAccounting, you need to have Python 3.x installed. 
 
 ```shell
 git clone https://github.com/AhmedRmdan/PyAccounting.git

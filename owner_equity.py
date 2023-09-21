@@ -16,6 +16,16 @@ class OE(Account):
         self.__class__.class_childs.append(self)
         __class__.class_childs.append(self)
 
+    @classmethod
+    def acc_summing(cls):
+        """Special implementation for a special account"""
+        return (
+            Capital.acc_sum()
+            + Revenue.acc_sum()
+            - Expense.acc_sum()
+            - Drawing.acc_sum()
+        )
+
 
 class Capital(OE):
     """Owner's Capital accout model"""

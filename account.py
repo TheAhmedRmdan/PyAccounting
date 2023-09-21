@@ -107,7 +107,7 @@ class Account:
             self._balance -= amount
 
     def update(self):  # previously @abstractmetohd
-        """Updates the balance_sheet dict for every transaction"""
+        """Updates the class childs list for every transaction"""
         self.class_childs.append(self)
 
     def __add__(self, other):
@@ -135,3 +135,8 @@ class Account:
 
     def __repr__(self):
         return f"{tuple([self.name,self.balance,self.acc_type])}"
+
+    @classmethod
+    def acc_sum(cls):
+        """A function to sum the class child balances"""
+        return sum(acc.balance for acc in cls.class_childs)

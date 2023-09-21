@@ -19,8 +19,9 @@ git clone https://github.com/AhmedRmdan/PyAccounting.git
 ```
 
 ## Usage
+The user interface is coming soon.
 
-Here's a simple example demonstrating the usage of PyAccounting:
+Here's a simple example demonstrating the usage of PyAccounting classes (in code, not UI):
 
 ```python
 # Create a new asset account

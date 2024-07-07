@@ -46,7 +46,7 @@ PyAccounting is licensed under the [MIT License](https://github.com/AhmedRmdan/P
 
 ## Credits
 
-PyAccounting is developed and maintained by [AhmedRmdan](https://github.com/AhmedRmdan). 
+PyAccounting is developed and maintained by [@TheAhmedRmdan](https://github.com/TheAhmedRmdan). 
 
 We hope you find PyAccounting useful for your accounting learning! If you have any questions or need further assistance, please don't hesitate to reach out.
 
